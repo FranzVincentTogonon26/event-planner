@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "@/components/Navbar";
+import { NeonAuthProviders } from "@/providers/neon-auth-ui-provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -27,13 +27,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
+      className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <div className="min-h-screen bg-background">
-          <Navbar />
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        <NeonAuthProviders>
           {children}
-        </div>
+        </NeonAuthProviders>
       </body>
     </html>
   );
