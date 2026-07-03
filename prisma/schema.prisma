@@ -5,9 +5,16 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  output   = "../lib/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model UserProfile {
+  id String @id
+  username String @unique
+   createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  @@map("user_profiles")
 }

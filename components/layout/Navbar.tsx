@@ -10,7 +10,7 @@ export default function Navbar(){
             <Link href={"/"} className="text-md font-semibold tracking-wide">
                 Event Planner
             </Link>
-            <nav className="">
+            <nav className="flex items-center gap-4">
                 <SignedIn>
                     <Link href={"/dashboard"} className="text-sm text-muted-foreground">
                         Dashboard
